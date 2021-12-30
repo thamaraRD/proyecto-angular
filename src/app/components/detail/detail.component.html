@@ -1,0 +1,25 @@
+<div class="container my-4 bg-light shadow">
+<div class="row">
+  <div class="col">
+    <br><table class="table table-striped">
+              <thead>
+                <tr>
+                  <th >Fecha</th>
+                  <th >Monto</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let lista of listaMonto " >
+                  <td >{{ lista.fecha | date:'yyyy-MM-dd' }}</td>
+                  <td >{{ lista.valor }}</td>
+                  
+                </tr>
+              </tbody>
+            </table>
+
+  </div>
+</div>
+</div>
+  
+        
+    

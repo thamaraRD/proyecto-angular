@@ -1,0 +1,50 @@
+<div class="container my-4 bg-light shadow">
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th >Nombre</th>
+            <th >Unidad de Medida</th>
+            <th >Fecha</th>
+            <th >Valor</th>
+            <th class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let valueOfApi of callTheApi | async" >
+            <td >{{ valueOfApi.name }}</td>
+            <td >{{ valueOfApi.unitOfMeasure }}</td>
+            <td >{{ valueOfApi.date | date:'yyyy-MM-dd' }}</td>
+            <td >{{ valueOfApi.value }}</td>
+            <td ><button class="btn btn-success" routerLink="/detail/{{valueOfApi.code}}" >Valor histórico</button></td>
+            <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"(click)="getIndicatorByType(valueOfApi.code)" >Valor actual</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+ </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Valor actual</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <h4>{{ indicator }}</h4>
+        <h3>{{ monto }}</h3>
+        <p>Unidad de medida: {{ unidad_medida }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Volver</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
